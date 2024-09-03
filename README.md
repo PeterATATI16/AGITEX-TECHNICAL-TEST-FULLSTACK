@@ -38,8 +38,8 @@ L'application permet de lire des fichiers de différents formats (CSV, JSON, TXT
 *2. Construire et exécuter le backend*
 
 ```bash
-  mvnw clean install
-  mvnw spring-boot:run
+  mvn clean install
+  mvn spring-boot:run
 ```
 
 *3. Naviguer vers le dossier front (React)*
@@ -69,11 +69,10 @@ ou
 **`Le frontend sera accessible sur http://localhost:3000.`**
 
 ***Docker (Optionnel)***
-
 ```bash
   docker-compose up --build
 ```
-**`La commande doit etre exécutée à la racine ou se trouve le fichier docker-compose`**
+**`La commande doit etre exécutée à la racine ou se trouve le fichier docker-compose.Assurez vous également que vous avez build le backend avec la commande mvn clean install`**
     
 ## Endpoints
 
