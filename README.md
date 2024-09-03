@@ -10,6 +10,7 @@ L'application permet de lire des fichiers de différents formats (CSV, JSON, TXT
 - **`climax-server-springboot/`** : Contient le code backend développé avec Spring Boot
 - **`climax-client-react/`** : Contient le code frontend développé avec React.
 - **`files/`** : Contient des fichiers de test au format CSV, JSON, TXT et XML.
+- **`captures/`** : Contient l'apercu de l'application.
 - **`docker-compose.yml`** : Fichier de configuration pour Docker Compose.
 
 
