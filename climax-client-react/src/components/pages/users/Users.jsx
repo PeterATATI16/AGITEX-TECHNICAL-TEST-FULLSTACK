@@ -16,13 +16,13 @@ function Users() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
   const [filePreview, setFilePreview] = useState("");
-  const { users, isLoadingUsers, importClients, isImportingClients } =
+  const { users, isLoadingUsers, importClients, isImportingClients, deleteUser, isDeletingUser, updateUser, isUpdatingUser } =
     useUsers();
 
   const filterKeys = ["nom", "prenom", "profession", "age", "salaire"];
   const filteredUsers = filterData(users, searchTerm, filterKeys);
 
-  const itemsPerPage = 5;
+  const itemsPerPage = 15;
   const totalPages = Math.ceil(filteredUsers?.length / itemsPerPage);
   const paginatedUsers = filteredUsers?.slice(
     (currentPage - 1) * itemsPerPage,
@@ -153,7 +153,7 @@ function Users() {
                               <td>
                                 <div className="col-sm-12 col-md-6">
                                   <div className="user-list-files d-flex float-right">
-                                    <ExportDropdown />
+                                    <ExportDropdown data={user} deleteAction={deleteUser} isDeleting={isDeletingUser} updateAction={updateUser} isUpdating={isDeletingUser}/>
                                   </div>
                                 </div>
                               </td>

@@ -1,10 +1,10 @@
-package com.moyenne.client_salaire.services;
+package com.moyenne.client_salaire.services.files;
 
+import com.moyenne.client_salaire.constants.ErrorMessages;
 import com.moyenne.client_salaire.entities.Client;
 import com.moyenne.client_salaire.exceptions.FileImportException;
 import com.moyenne.client_salaire.repositories.ClientRepository;
-import com.opencsv.bean.CsvToBean;
-import com.opencsv.bean.CsvToBeanBuilder;
+import com.moyenne.client_salaire.services.FileReaderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -12,7 +12,6 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.List;
 
 @Service
 @Slf4j
@@ -38,7 +37,7 @@ public class TxtFileReaderService implements FileReaderService {
                 clientRepository.save(client);
             }
         } catch (IOException e) {
-            throw new FileImportException("une erreur est survenue l'ors de l'import du fichier");
+            throw new FileImportException(ErrorMessages.FILE_IMPORT_ERROR);
         }
     }
 }

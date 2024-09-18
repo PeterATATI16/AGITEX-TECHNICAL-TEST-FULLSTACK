@@ -1,6 +1,7 @@
-package com.moyenne.client_salaire.services;
+package com.moyenne.client_salaire.services.files;
 import com.moyenne.client_salaire.dtos.ClientListWrapper;
 import com.moyenne.client_salaire.repositories.ClientRepository;
+import com.moyenne.client_salaire.services.FileReaderService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 

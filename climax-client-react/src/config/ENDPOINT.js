@@ -4,9 +4,16 @@ const ENDPOINTS = {
   logout: "/logout",
   forgot_password: "/password/forgot",
   reset_password: "/password/reset",
-  users: "/clients-list",
-  clients_stats: "/clients-stats",
-  import : "/import-file",
+  
+  clients: {
+    import: "/import-file",
+    all: "/clients-list",
+    show: "/show",
+    update: "/update",
+    delete: "/delete",
+    deleteAll: "/delete-all-clients",
+    stats: "/clients-stats",
+  },
 };
 
 export default ENDPOINTS;

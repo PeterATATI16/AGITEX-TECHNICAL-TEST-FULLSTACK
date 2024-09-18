@@ -1,18 +1,18 @@
 import { useQuery, useMutation, useQueryClient } from "react-query";
 import {
-  fetchUsers,
-  fetchUser,
-  updateUser,
-  deleteUser,
   fetchClientStats,
   importClients,
+  fetchClients,
+  fetchClient,
+  updateClient,
+  deleteClient,
 } from "../services/userService";
 import { errorToast, successToast } from "../config/toaster";
 
 export const useUsers = () => {
   const queryClient = useQueryClient();
 
-  const users = useQuery("users", fetchUsers, {
+  const users = useQuery("users", fetchClients, {
     onError: (error) => {
       const message =
         error.response?.data?.message ||
@@ -31,17 +31,17 @@ export const useUsers = () => {
   });
 
   const useUser = (id) =>
-    useQuery(["user", id], () => fetchUser(id), {
+    useQuery(["user", id], () => fetchClient(id), {
       onError: (error) => {
         const message =
           error.response?.data?.message ||
-          "Erreur lors du chargement de l'utilisateur";
+          "Erreur lors du chargement du client";
         errorToast(message);
       },
     });
 
   const updateUserMutation = useMutation(
-    ({ id, data }) => updateUser(id, data),
+    ({ id, data }) => updateClient(id, data),
     {
       onSuccess: () => {
         queryClient.invalidateQueries("users");
@@ -50,13 +50,13 @@ export const useUsers = () => {
       onError: (error) => {
         const message =
           error.response?.data?.message ||
-          "Erreur lors de la mise à jour de l'utilisateur";
+          "Erreur lors de la mise à jour du client";
         errorToast(message);
       },
     }
   );
 
-  const deleteUserMutation = useMutation((id) => deleteUser(id), {
+  const deleteUserMutation = useMutation((id) => deleteClient(id), {
     onSuccess: () => {
       queryClient.invalidateQueries("users");
       successToast("Utilisateur supprimé avec succès");
@@ -64,7 +64,7 @@ export const useUsers = () => {
     onError: (error) => {
       const message =
         error.response?.data?.message ||
-        "Erreur lors de la suppression de l'utilisateur";
+        "Erreur lors de la suppression du client";
       errorToast(message);
     },
   });

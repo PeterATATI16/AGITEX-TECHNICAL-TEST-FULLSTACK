@@ -1,7 +1,7 @@
 package com.moyenne.client_salaire;
 
 import com.moyenne.client_salaire.repositories.ClientRepository;
-import com.moyenne.client_salaire.services.CsvFileReaderService;
+import com.moyenne.client_salaire.services.files.CsvFileReaderService;
 import com.moyenne.client_salaire.services.FileReaderService;
 import com.moyenne.client_salaire.utils.FileReaderFactoryService;
 import org.junit.jupiter.api.BeforeEach;

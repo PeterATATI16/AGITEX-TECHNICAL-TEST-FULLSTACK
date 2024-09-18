@@ -16,8 +16,4 @@ public class ClientListWrapper {
     public List<Client> getClients() {
         return clients;
     }
-
-    public void setClients(List<Client> clients) {
-        this.clients = clients;
-    }
 }

@@ -1,8 +1,9 @@
-package com.moyenne.client_salaire.services;
+package com.moyenne.client_salaire.services.files;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.moyenne.client_salaire.entities.Client;
 import com.moyenne.client_salaire.repositories.ClientRepository;
+import com.moyenne.client_salaire.services.FileReaderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;

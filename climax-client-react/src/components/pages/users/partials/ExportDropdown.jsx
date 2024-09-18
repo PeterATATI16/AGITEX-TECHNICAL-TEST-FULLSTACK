@@ -1,6 +1,25 @@
 import React from "react";
+import Swal from "sweetalert2";
+import { successToast } from "../../../../config/toaster";
+import useAlert from "../../../../config/ShowAlert";
 
-function ExportDropdown() {
+function ExportDropdown(props) {
+  const { data, deleteAction, isDeleting, updateAction, isUpdating } = props;
+  const { showConfirmation } = useAlert();
+
+  const handleDelete = () => {
+    showConfirmation({
+      title: "Suppression !",
+      text: `Etes vous sur de vouloir supprimer ${data.nom}?`,
+      icon: "warning",
+      confirmButtonText: "Oui, supprimé",
+      cancelButtonText: "Non, annuler",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteAction(data.id);
+      }
+    });
+  };
   return (
     <div className="iq-card-header-toolbar d-flex align-items-center">
       <div className="dropdown show">
@@ -24,26 +43,19 @@ function ExportDropdown() {
             transform: "translate3d(-138px, 22px, 0px)",
           }}
         >
-          {/* <button className="dropdown-item" href="#">
-            <i className="ri-eye-fill mr-2" />
-            Voir
-          </button> */}
-          <a className="dropdown-item" href="#">
+          <button
+            type="button"
+            className="dropdown-item"
+            href="#"
+            onClick={handleDelete}
+          >
             <i className="ri-delete-bin-6-fill mr-2" />
             Supprimer
-          </a>
+          </button>
           <a className="dropdown-item" href="#">
             <i className="ri-pencil-fill mr-2" />
             Modifier
           </a>
-          {/* <a className="dropdown-item" href="#">
-            <i className="ri-printer-fill mr-2" />
-            Imprimer
-          </a> */}
-          {/* <a className="dropdown-item" href="#">
-            <i className="ri-file-download-fill mr-2" />
-            Télecharger
-          </a> */}
         </div>
       </div>
     </div>

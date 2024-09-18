@@ -2,6 +2,10 @@ package com.moyenne.client_salaire.utils;
 
 import com.moyenne.client_salaire.repositories.ClientRepository;
 import com.moyenne.client_salaire.services.*;
+import com.moyenne.client_salaire.services.files.CsvFileReaderService;
+import com.moyenne.client_salaire.services.files.JsonFileReaderService;
+import com.moyenne.client_salaire.services.files.TxtFileReaderService;
+import com.moyenne.client_salaire.services.files.XmlFileReaderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 

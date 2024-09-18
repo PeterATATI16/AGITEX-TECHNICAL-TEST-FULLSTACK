@@ -21,5 +21,4 @@ public class Client {
     private int age;
     private String profession;
     private double salaire;
-
 }

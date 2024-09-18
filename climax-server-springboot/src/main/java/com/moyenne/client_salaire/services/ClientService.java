@@ -1,6 +1,7 @@
 package com.moyenne.client_salaire.services;
 
 import com.moyenne.client_salaire.entities.Client;
+import com.moyenne.client_salaire.exceptions.NotFoundException;
 import com.moyenne.client_salaire.repositories.ClientRepository;
 import org.springframework.stereotype.Service;
 
@@ -29,10 +30,6 @@ public class ClientService {
         return moyenneSalaires;
     }
 
-    public List<Client> getAllClients() {
-        return clientRepository.findAll();
-    }
-
     public List<Map<String, Object>> getStatsByProfession() {
         List<Object[]> results = clientRepository.findStatsByProfession();
         List<Map<String, Object>> stats = new ArrayList<>();
@@ -47,6 +44,33 @@ public class ClientService {
         }
 
         return stats;
+    }
+
+    public List<Client> getAllClients() {
+        return clientRepository.findAll();
+    }
+
+    public Client showClient(Long id) {
+        return clientRepository.findById(id).orElseThrow(() -> new NotFoundException("Client not found"));
+    }
+
+    public void deleteClient(Long id) {
+        clientRepository.deleteById(id);
+    }
+
+    public Client updateClient(Long id, Client updatedClient) {
+        return clientRepository.findById(id).map(client -> {
+            client.setNom(updatedClient.getNom());
+            client.setPrenom(updatedClient.getPrenom());
+            client.setAge(updatedClient.getAge());
+            client.setProfession(updatedClient.getProfession());
+            client.setSalaire(updatedClient.getSalaire());
+            return clientRepository.save(client);
+        }).orElseThrow(() -> new NotFoundException("Client not found"));
+    }
+
+    public void deleteAllClients() {
+        clientRepository.deleteAll();
     }
 
 }
