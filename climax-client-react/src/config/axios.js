@@ -9,7 +9,6 @@ const AXIOS = axios.create({
   withCredentials: true,
 });
 
-// Intercepteur pour ajouter le token d'authentification
 AXIOS.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("access_token");
@@ -23,7 +22,6 @@ AXIOS.interceptors.request.use(
   }
 );
 
-// Intercepteur pour gérer les erreurs globales
 AXIOS.interceptors.response.use(
   (response) => {
     return response;
