@@ -12,4 +12,5 @@ public class ApiRoutes {
     public static final String DELETE_ALL_CLIENTS = "/delete-all-clients";
     public static final String REGISTER = "/register";
     public static final String LOGIN = "/login";
+    public static final String AUTH = "/auth";
 }

@@ -26,6 +26,11 @@ public class AuthenticationController {
     public ResponseEntity<AuthenticationResponse> login(@RequestBody User request) {
     return ResponseEntity.ok(authService.authenticate(request));
     }
+    @GetMapping(ApiRoutes.AUTH)
+    public User getAuth() {
+        return authService.getAuthenticatedUser();
+    }
+
 
 
 }
