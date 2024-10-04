@@ -1,6 +1,7 @@
 package com.average.client_salary.services;
 
 import com.average.client_salary.constants.ErrorMessages;
+import com.average.client_salary.dtos.UserDTO;
 import com.average.client_salary.entities.AuthenticationResponse;
 import com.average.client_salary.entities.User;
 import com.average.client_salary.repositories.UserRepository;
@@ -57,8 +58,10 @@ public class AuthenticationService {
 
     }
 
-    public User getAuthenticatedUser() {
+    public UserDTO getAuthenticatedUser() {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return userRepository.findByUsername(userDetails.getUsername()).orElseThrow(() -> new IllegalArgumentException(ErrorMessages.USER_NOT_FOUND));
+        User user = userRepository.findByUsername(userDetails.getUsername())
+                .orElseThrow(() -> new IllegalArgumentException(ErrorMessages.USER_NOT_FOUND));
+        return new UserDTO(user.getId(), user.getFirstName(), user.getLastName(), user.getUsername(), user.getRole());
     }
 }
