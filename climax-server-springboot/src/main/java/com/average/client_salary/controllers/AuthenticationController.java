@@ -2,6 +2,7 @@ package com.average.client_salary.controllers;
 
 
 import com.average.client_salary.constants.ApiRoutes;
+import com.average.client_salary.dtos.UserDTO;
 import com.average.client_salary.entities.AuthenticationResponse;
 import com.average.client_salary.entities.User;
 import com.average.client_salary.services.AuthenticationService;
@@ -20,17 +21,17 @@ public class AuthenticationController {
 
     @PostMapping(ApiRoutes.REGISTER)
     public ResponseEntity<AuthenticationResponse> register(@RequestBody User request) {
-    return ResponseEntity.ok(authService.register(request));
+        return ResponseEntity.ok(authService.register(request));
     }
+
     @PostMapping(ApiRoutes.LOGIN)
     public ResponseEntity<AuthenticationResponse> login(@RequestBody User request) {
-    return ResponseEntity.ok(authService.authenticate(request));
+        return ResponseEntity.ok(authService.authenticate(request));
     }
+
     @GetMapping(ApiRoutes.AUTH)
-    public User getAuth() {
+    public UserDTO getAuth() {
         return authService.getAuthenticatedUser();
     }
-
-
 
 }
