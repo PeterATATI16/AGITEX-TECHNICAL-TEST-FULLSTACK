@@ -7,18 +7,26 @@ import {
 } from "../utils/localStorage";
 
 export const login = async (credentials) => {
-  const response = await AXIOS.post(ENDPOINT.login, credentials);
-  if (response.data.access_token) {
-    setLocalItem("access_token", response.data.access_token);
-    setLocalItem("user", JSON.stringify(response.data.auth));
+  const response = await AXIOS.post(ENDPOINT.AuthRoutes.login, credentials);
+  if (response.data) {
+    setLocalItem("token", response.data.token);
+    getAuth();
+  }
+  return response.data;
+};
+
+export const getAuth = async () => {
+  const response = await AXIOS.get(ENDPOINT.AuthRoutes.auth);
+  if (response.data) {
+    setLocalItem("user", JSON.stringify(response.data));
   }
   return response.data;
 };
 
 export const register = async (data) => {
-  const response = await AXIOS.post(ENDPOINT.register, data);
-  if (response.data.access_token) {
-    setLocalItem("access_token", response.data.access_token);
+  const response = await AXIOS.post(ENDPOINT.AuthRoutes.register, data);
+  if (response.data.token) {
+    setLocalItem("token", response.data.token);
     setLocalItem("user", JSON.stringify(response.data.user));
   }
   return response.data;
@@ -26,7 +34,7 @@ export const register = async (data) => {
 
 export const logout = async () => {
   const response = await AXIOS.post(ENDPOINT.logout);
-  removeLocalItem("access_token");
+  removeLocalItem("token");
   removeLocalItem("user");
   return response.data;
 };

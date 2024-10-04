@@ -20,8 +20,8 @@ function Profil() {
                 alt="user"
               />
               <div className="caption">
-                <h6 className="mb-0 line-height">{AUTH?.name}</h6>
-                <p className="mb-0">Manager</p>
+                <h6 className="mb-0 line-height">{AUTH?.lastName}</h6>
+                <p className="mb-0">{AUTH?.role}</p>
               </div>
             </a>
             <div className="iq-sub-dropdown iq-user-dropdown">
@@ -29,7 +29,7 @@ function Profil() {
                 <div className="iq-card-body p-0 ">
                   <div className="bg-primary p-3">
                     <h5 className="mb-0 text-white line-height">
-                      Hello {AUTH?.name}
+                      Hello {AUTH?.lastName}
                     </h5>
                     <span className="text-white font-size-12">Available</span>
                   </div>

@@ -19,17 +19,17 @@ export const useAuth = () => {
   const loginMutation = useMutation({
     mutationFn: (credentials) => login(credentials),
     onSuccess: (data) => {
-      setAuth(data.auth);
+      setAuth(getUserFromLocalStorage());
       setIsAuthenticated(true);
-      if (data.auth) {
+      if (data) {
         navigate("/dashboard");
-        successToast(`Bienvenue ${data.auth.name}`);
+        successToast(`Bienvenue ${AUTH.lastName}`);
       }
     },
     onError: (error) => {
+      const errorMessage = error.message;
       errorToast(
-        error.response?.data?.message ||
-          "Une erreur est survenue lors de la connexion"
+        errorMessage || "Une erreur est survenue lors de la connexion"
       );
     },
   });

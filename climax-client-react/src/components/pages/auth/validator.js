@@ -1,8 +1,8 @@
 const validateForm = (formData, type) => {
   switch (type) {
     case "login":
-      if (!formData.email) {
-        return "Renseignez votre adresse mail!";
+      if (!formData.username) {
+        return "Renseignez votre nom d'utilisateur!";
       }
       if (!formData.password) {
         return "Renseignez votre mot de passe!";

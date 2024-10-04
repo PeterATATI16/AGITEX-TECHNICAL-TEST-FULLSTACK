@@ -21,7 +21,7 @@ ChartJS.register(
 
 const ClientsStatsChart = ({ clientsStats }) => {
   const data = {
-    labels: clientsStats.map((item) => item.profession),
+    labels: clientsStats?.map((item) => item.profession),
     datasets: [
       {
         label: "Nombre de Clients",

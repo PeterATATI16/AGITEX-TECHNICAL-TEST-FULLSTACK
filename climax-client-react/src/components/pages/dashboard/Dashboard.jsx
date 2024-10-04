@@ -8,8 +8,6 @@ import ClientsProfessionPieChart from "./partials/ClientsProfessionPieChart";
 function Dashboard() {
   const { users, clients_stats, isLoadingClientStats, isLoadingUsers } =
     useUsers();
-  console.log("Stats", clients_stats);
-
   if (isLoadingUsers || isLoadingClientStats) {
     return <ProgessBar loader={isLoadingUsers} progress={100} />;
   }

@@ -1,11 +1,14 @@
 const ENDPOINTS = {
-  login: "/login",
-  register: "/register",
-  logout: "/logout",
-  forgot_password: "/password/forgot",
-  reset_password: "/password/reset",
-  
-  clients: {
+  AuthRoutes: {
+    login: "/login",
+    register: "/register",
+    auth: "/auth",
+    logout: "/logout",
+    forgot_password: "/password/forgot",
+    reset_password: "/password/reset",
+  },
+
+  clientRoutes: {
     import: "/import-file",
     all: "/clients-list",
     show: "/show",

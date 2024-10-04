@@ -3,7 +3,7 @@ import { lazy } from "react";
 const routes = [
   {
     id: 1,
-    href: "/login",
+    href: "/",
     component: lazy(() => import("../components/pages/auth/auth-forms/Login")),
     layout: "AuthLayout",
   },
@@ -33,16 +33,16 @@ const routes = [
   },
   {
     id: 4,
-    href: "/",
+    href: "/dashboard",
     component: lazy(() => import("../components/pages/dashboard/Dashboard")),
-    requiresAuth: false,
+    requiresAuth: true,
     layout: "AdminLayout",
   },
   {
     id: 5,
     href: "/clients",
     component: lazy(() => import("../components/pages/users/Users")),
-    requiresAuth: false,
+    requiresAuth: true,
     layout: "AdminLayout",
   },
 

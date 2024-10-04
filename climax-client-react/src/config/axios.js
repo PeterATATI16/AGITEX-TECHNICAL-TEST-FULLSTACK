@@ -1,8 +1,9 @@
 import axios from "axios";
-import { URL } from "./constants";
+import { BASE_URL } from "./constants";
+import { getLocalItem } from "../utils/localStorage";
 
 const AXIOS = axios.create({
-  baseURL: URL,
+  baseURL: BASE_URL,
   headers: {
     "Content-Type": "application/json",
   },
@@ -11,7 +12,7 @@ const AXIOS = axios.create({
 
 AXIOS.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem("access_token");
+    const token = getLocalItem("token");
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
@@ -27,8 +28,8 @@ AXIOS.interceptors.response.use(
     return response;
   },
   (error) => {
-    if (error.response.status === 401) {
-      localStorage.removeItem("access_token");
+    if (error.response) {
+      localStorage.removeItem("token");
     }
     return Promise.reject(error);
   }

@@ -7,12 +7,12 @@ function Login() {
   const { formData, handleChange, handleLogin, isLoadingLogin } = useFormAuth();
   const fields = [
     {
-      id: "email",
-      label: "Email address",
-      type: "email",
-      placeholder: "Enter email",
-      name: "email",
-      value: formData.email,
+      id: "username",
+      label: "Username",
+      type: "text",
+      placeholder: "Enter username",
+      name: "username",
+      value: formData.username,
     },
     {
       id: "password",
@@ -28,7 +28,7 @@ function Login() {
       <div className="sign-in-from">
         <h1 className="mb-0 text-center">Sign in</h1>
         <p className="text-center text-dark">
-          Enter your email address and password to access admin panel.
+          Enter your password and password to access admin panel.
         </p>
         <Form
           fields={fields}

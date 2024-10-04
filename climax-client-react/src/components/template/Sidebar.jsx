@@ -12,7 +12,7 @@ function Sidebar() {
               className="img-fluid rounded"
               alt=""
             />
-            <span>Climax</span>
+            <span>HuB</span>
           </a>
           <div className="iq-menu-bt align-self-center">
             <div className="wrapper-menu">

@@ -16,10 +16,18 @@ function Users() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
   const [filePreview, setFilePreview] = useState("");
-  const { users, isLoadingUsers, importClients, isImportingClients, deleteUser, isDeletingUser, updateUser, isUpdatingUser } =
-    useUsers();
+  const {
+    users,
+    isLoadingUsers,
+    importClients,
+    isImportingClients,
+    deleteUser,
+    isDeletingUser,
+    updateUser,
+    isUpdatingUser,
+  } = useUsers();
 
-  const filterKeys = ["nom", "prenom", "profession", "age", "salaire"];
+  const filterKeys = ["lastname", "firstname", "profession", "age", "salary"];
   const filteredUsers = filterData(users, searchTerm, filterKeys);
 
   const itemsPerPage = 15;
@@ -30,7 +38,7 @@ function Users() {
   );
 
   const breadcrumbItems = [
-    { label: "Tableau de bord", href: "/", icon: "ri-home-4-line" },
+    { label: "Tableau de bord", href: "/dashboard", icon: "ri-home-4-line" },
     { label: "Clients" },
   ];
 
@@ -71,15 +79,32 @@ function Users() {
             <div className="iq-card-body">
               <div className="row justify-content-between">
                 <div className="col-sm-12 col-md-8">
-                  <label htmlFor="">Importer la liste de clients à partir d'un fichier : </label>{" "}
+                  <label htmlFor="">
+                    Importer la liste de clients à partir d'un fichier :{" "}
+                  </label>{" "}
                   <input type="file" onChange={handleFileChange} />
                 </div>
-                <LoadingButton title={"Importer"} loader={isImportingClients} action={handleImport} icon={ICON.add_ico} clss={"btn btn-primary d-block w-25"}/>
+                <LoadingButton
+                  title={"Importer"}
+                  loader={isImportingClients}
+                  action={handleImport}
+                  icon={ICON.add_ico}
+                  clss={"btn btn-primary d-block w-25"}
+                />
               </div>
               {filePreview && (
                 <div className="row mt-4">
                   <div className="col-sm-12 col-md-6">
-                    <div className="file-preview p-3" style={{ whiteSpace: "pre-wrap", backgroundColor: "#f8f9fa", borderRadius: "5px", overflowY: "auto", maxHeight: "200px" }}>
+                    <div
+                      className="file-preview p-3"
+                      style={{
+                        whiteSpace: "pre-wrap",
+                        backgroundColor: "#f8f9fa",
+                        borderRadius: "5px",
+                        overflowY: "auto",
+                        maxHeight: "200px",
+                      }}
+                    >
                       {filePreview}
                     </div>
                   </div>
@@ -145,15 +170,21 @@ function Users() {
                                   alt="profile"
                                 />
                               </td>
-                              <td>{user.nom}</td>
-                              <td>{user.prenom}</td>
+                              <td>{user.lastname}</td>
+                              <td>{user.firstname}</td>
                               <td>{user.age}</td>
                               <td>{user.profession}</td>
-                              <td>{user.salaire + " k€"}</td>
+                              <td>{user.salary + " k€"}</td>
                               <td>
                                 <div className="col-sm-12 col-md-6">
                                   <div className="user-list-files d-flex float-right">
-                                    <ExportDropdown data={user} deleteAction={deleteUser} isDeleting={isDeletingUser} updateAction={updateUser} isUpdating={isDeletingUser}/>
+                                    <ExportDropdown
+                                      data={user}
+                                      deleteAction={deleteUser}
+                                      isDeleting={isDeletingUser}
+                                      updateAction={updateUser}
+                                      isUpdating={isDeletingUser}
+                                    />
                                   </div>
                                 </div>
                               </td>

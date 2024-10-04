@@ -2,30 +2,30 @@ import AXIOS from "../config/axios";
 import ENDPOINT from "../config/ENDPOINT";
 
 export const fetchClients = async () => {
-  const response = await AXIOS.get(ENDPOINT.clients.all);
+  const response = await AXIOS.get(ENDPOINT.clientRoutes.all);
   return response.data;
 };
 export const fetchClientStats = async () => {
-  const response = await AXIOS.get(ENDPOINT.clients.stats);
+  const response = await AXIOS.get(ENDPOINT.clientRoutes.stats);
   return response.data;
 };
 
 export const fetchClient = async (id) => {
-  const response = await AXIOS.get(`${ENDPOINT.clients.show}/${id}`);
+  const response = await AXIOS.get(`${ENDPOINT.clientRoutes.show}/${id}`);
   return response.data;
 };
 
 export const updateClient = async (id, data) => {
-  const response = await AXIOS.put(`${ENDPOINT.clients.update}/${id}`, data);
+  const response = await AXIOS.put(`${ENDPOINT.clientRoutes.update}/${id}`, data);
   return response.data;
 };
 
 export const deleteClient = async (id) => {
-  const response = await AXIOS.delete(`${ENDPOINT.clients.delete}/${id}`);
+  const response = await AXIOS.delete(`${ENDPOINT.clientRoutes.delete}/${id}`);
   return response.data;
 };
 export const deleteAllClients = async (id) => {
-  const response = await AXIOS.delete(`${ENDPOINT.clients.deleteAll}`);
+  const response = await AXIOS.delete(`${ENDPOINT.clientRoutes.deleteAll}`);
   return response.data;
 };
 
@@ -33,7 +33,7 @@ export const importClients = async (file) => {
   const formData = new FormData();
   formData.append("file", file);
 
-  const response = await AXIOS.post(`${ENDPOINT.clients.import}`, formData, {
+  const response = await AXIOS.post(`${ENDPOINT.clientRoutes.import}`, formData, {
     headers: {
       "Content-Type": "multipart/form-data",
     },

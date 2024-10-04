@@ -10,7 +10,7 @@ function SideNav() {
           <li className="active">
             <ul>
               <li className="active">
-                <Link to={"/"}>
+                <Link to={"/dashboard"}>
                   {ICON.dash_ico}
                   Tableau de bord
                 </Link>

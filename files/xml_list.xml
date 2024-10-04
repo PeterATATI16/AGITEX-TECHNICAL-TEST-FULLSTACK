@@ -1,23 +1,23 @@
 <clients>
     <client>
-        <nom>Durand</nom>
-        <prenom>Marc</prenom>
+        <lastname>Durand</lastname>
+        <firstname>Marc</firstname>
         <age>25</age>
         <profession>informaticien</profession>
-        <salaire>35</salaire>
+        <salary>35</salary>
     </client>
     <client>
-        <nom>Lemoine</nom>
-        <prenom>Sophie</prenom>
+        <lastname>Lemoine</lastname>
+        <firstname>Sophie</firstname>
         <age>32</age>
         <profession>informaticien</profession>
-        <salaire>38</salaire>
+        <salary>38</salary>
     </client>
     <client>
-        <nom>Benoit</nom>
-        <prenom>Alexandre</prenom>
+        <lastname>Benoit</lastname>
+        <firstname>Alexandre</firstname>
         <age>29</age>
         <profession>comptable</profession>
-        <salaire>33</salaire>
+        <salary>33</salary>
     </client>
 </clients>

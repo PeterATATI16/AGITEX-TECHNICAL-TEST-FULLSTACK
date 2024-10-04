@@ -1,6 +1,4 @@
 import React from "react";
-import Swal from "sweetalert2";
-import { successToast } from "../../../../config/toaster";
 import useAlert from "../../../../config/ShowAlert";
 
 function ExportDropdown(props) {
@@ -10,7 +8,7 @@ function ExportDropdown(props) {
   const handleDelete = () => {
     showConfirmation({
       title: "Suppression !",
-      text: `Etes vous sur de vouloir supprimer ${data.nom}?`,
+      text: `Etes vous sur de vouloir supprimer ${data.lastname}?`,
       icon: "warning",
       confirmButtonText: "Oui, supprimé",
       cancelButtonText: "Non, annuler",

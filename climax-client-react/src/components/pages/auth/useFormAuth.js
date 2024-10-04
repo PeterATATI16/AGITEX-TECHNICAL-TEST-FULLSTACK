@@ -7,6 +7,7 @@ const useFormAuth = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    username: "",
     password: "",
     confirm_password: "",
 
@@ -43,7 +44,7 @@ const useFormAuth = () => {
     }
 
     const credentials = {
-      email: formData.email,
+      username: formData.username,
       password: formData.password,
     };
 
