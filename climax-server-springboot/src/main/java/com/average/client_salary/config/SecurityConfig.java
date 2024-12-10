@@ -32,7 +32,6 @@ public class SecurityConfig {
         this.corsFilter = corsFilter;
     }
 
-
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http.csrf(AbstractHttpConfigurer::disable).addFilterBefore(corsFilter, UsernamePasswordAuthenticationFilter.class).authorizeHttpRequests(req -> req.requestMatchers(ApiRoutes.BASE_URL + "/login/**", ApiRoutes.BASE_URL + "/register/**").permitAll().anyRequest().authenticated()).userDetailsService(userDetailsService).sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)).addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class).build();
